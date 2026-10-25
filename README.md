@@ -35,6 +35,7 @@ Brand and legal teams review marketing content by hand. So:
 - 🐢 Every review is slow, inconsistent and hard to audit
 
 *BrandCI treats content like code.* It goes through a pipeline and comes out with a verdict: ✅ *PASS, 🟡 **REVIEW* or 🚫 *BLOCK*.
+<img width="1397" height="880" alt="image" src="https://github.com/user-attachments/assets/9ed0ad28-8abf-4089-a7ca-3fb4a64c05b2" />
 
 ---
 
