@@ -1,55 +1,147 @@
-# BrandCI
+<div align="center">
 
-*Brand governance, as CI/CD.*
-Paste marketing content and brand guidelines. AI extracts every claim, matches it to approved facts, scores the risk, and suggests a compliant rewrite. Humans approve at two checkpoints.
+# 🛡️ BrandCI
 
-*Live demo:* https://b64957593-oss.github.io/BrandCI/
+### Brand governance, as CI/CD.
 
-## The problem
-Brand and legal teams review content by hand. Risky claims like "removes wrinkles in 3 days" or "number 1 in India" slip through, and expired evidence keeps getting reused. BrandCI works like a CI pipeline: content goes in, a PASS / REVIEW / BLOCK verdict comes out.
+Paste your content. AI checks every claim against approved brand facts, scores the risk, and writes the fix.
 
-## How it works
+[
+
+![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Open_App-7C5CFF?style=for-the-badge)
+
+](https://b64957593-oss.github.io/BrandCI/)
+
+
+![AI](https://img.shields.io/badge/AI-Groq_%7C_Gemini-22D3EE?style=for-the-badge)
+
+
+
+
+![No Build](https://img.shields.io/badge/Build-Zero_Config-10D9A0?style=for-the-badge)
+
+
+
+</div>
+
+---
+
+## 😩 The Problem
+
+Brand and legal teams review marketing content by hand. So:
+
+- 🚨 Risky claims like "Removes wrinkles in 3 days" slip through
+- 📅 Expired evidence keeps getting reused
+- 🐢 Every review is slow, inconsistent and hard to audit
+
+*BrandCI treats content like code.* It goes through a pipeline and comes out with a verdict: ✅ *PASS, 🟡 **REVIEW* or 🚫 *BLOCK*.
+
+---
+
+## ⚙️ How It Works
+
+mermaid
+flowchart LR
+    A[📥 Input<br/>content + guidelines] --> B[🔍 Extraction Agent]
+    B --> C[👤 Creator Checkpoint]
+    C --> D[🔗 Evidence Agent]
+    D --> E[👤 Reviewer Checkpoint]
+    E --> F[⚖️ Governance Agents]
+    F --> G[📦 Output Files + Verdict]
+
 
 | Step | What happens | Who |
 |---|---|---|
-| 01 Input | Paste or upload source content and brand references | You |
-| 02 Extraction | Quantitative and important claims are pulled into source.json | Extraction Agent |
-| 03 Creator checkpoint | Edit, remove, or add missed claims | Human |
-| 04 Reference matching | Each claim is matched to an approved fact and guideline, expired evidence is flagged | Evidence Agent |
-| 05 Reviewer checkpoint | Confirm facts, switch off wrong or expired evidence | Human |
-| 06 Validate + explain | Every claim is scored Low / Medium / High with the reason and the guideline cited. Tone, language and accessibility issues are also caught | Governance Agents |
-| 07 Output | source.json, reference.json, validate.json, suggestions.json | Auto |
+| 📥 *01 Input* | Paste or upload source content and brand references | You |
+| 🔍 *02 Extraction* | Quantitative and important claims are pulled into source.json | AI |
+| ✏️ *03 Creator check* | Edit, delete, or add claims the AI missed | Human |
+| 🔗 *04 Matching* | Each claim is matched to an approved fact and guideline. Expired evidence is flagged | AI |
+| 🧐 *05 Reviewer check* | Confirm facts, switch off wrong or expired evidence | Human |
+| ⚖️ *06 Validate* | Risk score (Low, Medium, High) with the reason and cited guideline | AI |
+| 📦 *07 Output* | 4 JSON files plus a final verdict | Auto |
 
-The verdict is *BLOCK* if any claim is high risk, *REVIEW* if any is medium, otherwise *PASS*.
+---
 
-## Features
-- 3 specialised AI agents with human-in-the-loop checkpoints
-- Risk scoring with explanations and cited guidelines
-- Suggested compliant rewrites for every flagged claim
-- Whole-content checks for tone, language and missing alt text
-- Download each JSON file, or everything as one report
-- Run history saved in the browser
-- Premium dark UI, auto light mode, animated pipeline
+## 🧪 Example
 
-## Try it in 1 minute
-1. Open the live demo.
-2. Go to *Settings, pick **Groq*, and paste a free API key from [console.groq.com](https://console.groq.com).
-3. Click *Load sample, then **Extract claims*, and follow the steps.
+Input: a skincare Instagram caption and launch email.
 
-Your API key is stored only in your own browser and is sent only to the AI provider.
+| Claim | Risk | Why | Suggested fix |
+|---|---|---|---|
+| "Removes wrinkles in 3 days" | 🔴 High | Study shows results after 4 weeks, and "removes" is an absolute claim | Visibly reduces fine lines in 4 weeks |
+| "Clinically proven for all skin types" | 🟡 Medium | Tested on normal and dry skin only | Clinically tested on normal and dry skin |
+| "Contains 2% niacinamide" | 🟢 Low | Matches the approved formulation | No change |
 
-## Tech
-- Single-file frontend: HTML, CSS and vanilla JavaScript, no build step
-- LLM via any OpenAI-compatible API (Groq or Google Gemini)
-- Browser localStorage for settings and run history
-- Hosted on GitHub Pages
+*Verdict: 🚫 BLOCK*
 
-## Known limits
-- The API key lives in the browser, which is fine for a demo but not for production. A production version needs a backend that holds the key.
-- Text input only for now (paste, or .txt / .md / .csv / .json).
+---
 
-## Roadmap
-- Backend (FastAPI) with a database for shared run history
-- Image and PDF extraction with a vision model
-- Email and CMS integrations, so BrandCI can gate publishing in a real pipeline
-- Per-brand guideline libraries with evidence expiry tracking
+## ✨ Features
+
+- 🤖 *3 specialised AI agents* with human-in-the-loop checkpoints
+- 🎯 *Risk scoring* with explanations and the guideline cited
+- ✍️ *Compliant rewrites* suggested for every flagged claim
+- 🧹 *Whole-content checks* for tone, language and missing image alt text
+- ⏳ *Expired evidence detection*
+- 💾 *Export* each JSON file, or the full report in one click
+- 🕘 *Run history* saved in your browser
+- 🎨 *Premium UI* with dark and light mode and smooth animations
+
+---
+
+## 🚀 Try It in 1 Minute
+
+1. 🌐 Open the **[Live Demo](https://b64957593-oss.github.io/BrandCI/)**
+2. ⚙️ Go to *Settings, choose **Groq* and paste a free API key from [console.groq.com](https://console.groq.com)
+3. 🧪 Click *Load sample, then **Extract claims*, and follow the steps
+
+> 🔒 Your API key stays in your own browser and is sent only to the AI provider.
+
+---
+
+## 📂 Output Files
+
+| File | Contains |
+|---|---|
+| source.json | Claims extracted from your content |
+| reference.json | Approved facts and guidelines matched to those claims |
+| validate.json | Each claim paired with its fact, risk level and reason |
+| suggestions.json | Compliant rewrites for every flagged claim |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Choice |
+|---|---|
+| 🎨 Frontend | HTML, CSS and vanilla JavaScript in a single file |
+| 🧠 AI | Any OpenAI-compatible API (Groq or Google Gemini) |
+| 💽 Storage | Browser localStorage |
+| ☁️ Hosting | GitHub Pages |
+
+---
+
+## ⚠️ Known Limits
+
+- 🔑 The API key lives in the browser. That is fine for a demo, but production needs a backend that holds the key.
+- 📝 Text input only for now (paste, or .txt, .md, .csv, .json files).
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] 🐍 FastAPI backend with a shared database
+- [ ] 🖼️ Image and PDF extraction using a vision model
+- [ ] 📧 Email and CMS integrations to gate publishing in a real pipeline
+- [ ] 📚 Per-brand guideline libraries with evidence expiry tracking
+- [ ] 👥 Team roles and approval workflows
+
+---
+
+<div align="center">
+
+*Built with ❤️ for safer brand content*
+
+⭐ Star this repo if you like the idea
+
+</div>
